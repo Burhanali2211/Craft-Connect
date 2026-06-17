@@ -1,7 +1,7 @@
 # CraftConnect
 **Empowering Local Artisans Through Digital Commerce.**
 
-![Dashboard Screenshot](./public/dashbaord.png)
+![Dashboard Screenshot](CraftConnect/public/dashbaord.png)
 
 ## Overview
 CraftConnect is a beautifully designed, modern web application that bridges the gap between traditional craftsmanship and global commerce. Born out of a mission to preserve the rich cultural heritage of Jammu & Kashmir, the platform empowers local artisans—wood carvers, shawl makers, embroidery artists, and rural women's self-help groups—by providing them a direct and transparent marketplace to sell their authentic creations.
