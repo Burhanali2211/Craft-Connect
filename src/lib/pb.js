@@ -1,6 +1,7 @@
 import PocketBase from 'pocketbase';
 
-// Replace the URL with your PocketBase server URL (local or production)
-const pb = new PocketBase('http://195.35.22.110:8090');
+// Use '/' to rely on Vercel rewrites (prod) and Vite proxy (dev) 
+// This prevents mixed content errors when fetching over HTTPS
+const pb = new PocketBase('/');
 
 export default pb;
