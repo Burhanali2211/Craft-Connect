@@ -15,9 +15,13 @@ async function run() {
         existingUserFields.push({ name: 'coverImage', type: 'file', maxSelect: 1, required: false });
         existingUserFields.push({ name: 'bio', type: 'text', required: false });
         existingUserFields.push({ name: 'location', type: 'text', required: false });
-        await pb.collections.update('users', { fields: existingUserFields });
-        console.log('Users collection updated.');
     }
+    await pb.collections.update('users', { 
+        fields: existingUserFields,
+        listRule: "",
+        viewRule: ""
+    });
+    console.log('Users collection updated.');
 
     // 2. Update Products Collection
     const products = await pb.collections.getOne('products');
@@ -27,9 +31,13 @@ async function run() {
         existingProductFields.push({ name: 'imageUrl', type: 'url', required: false });
         existingProductFields.push({ name: 'category', type: 'text', required: false });
         existingProductFields.push({ name: 'artisan', type: 'relation', collectionId: users.id, maxSelect: 1, required: false });
-        await pb.collections.update('products', { fields: existingProductFields });
-        console.log('Products collection updated.');
     }
+    await pb.collections.update('products', { 
+        fields: existingProductFields,
+        listRule: "",
+        viewRule: ""
+    });
+    console.log('Products collection updated.');
 
     // 3. Create Orders Collection
     try {
