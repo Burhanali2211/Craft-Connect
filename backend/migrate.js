@@ -55,7 +55,15 @@ async function run() {
         });
         console.log('Orders collection created.');
     }
+    
+    // Update Orders to make customer optional and set rules
+    const ordersCollection = await pb.collections.getOne('orders');
+    const existingOrdersFields = ordersCollection.fields || ordersCollection.schema;
+    const customerField = existingOrdersFields.find(f => f.name === 'customer');
+    if (customerField) customerField.required = false;
+
     await pb.collections.update('orders', {
+        fields: existingOrdersFields,
         listRule: "",
         viewRule: "",
         createRule: "",
