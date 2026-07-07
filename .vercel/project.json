@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_62MDlDt729xyLuALPerAfPETYblO",
+  "orgId": "team_CIZpnt7sJqGpchD0xCtvzXiB",
+  "projectName": "craft-connect",
+  "settings": {
+    "createdAt": 1781667417731,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

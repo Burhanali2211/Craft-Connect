@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-light: #f7f7f5; /* Ultra-clean soft stone */
+  --bg-card: #ffffff;
+  --text-main: #0a0a0a; /* Stark off-black for massive contrast */
+  --text-muted: #525252;
+  
+  /* Modern sleek earthy rust tones */
+  --brand-rust: #C05640; 
+  --brand-rust-dark: #8E3E2D; 
+  --brand-rust-light: #F4E3DF;
+  
+  --font-heading: 'Montserrat', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Remove the noisy paper texture for a cleaner, Awwwards-minimalist look */
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: inherit;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em; /* Tight, modern tracking */
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* Replaced the messy script text with an ultra-clean, modern uppercase overline */
+.overline-text {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+/* Utilities */
+.rust-gradient-text {
+  background: linear-gradient(135deg, var(--brand-rust-dark) 0%, var(--brand-rust) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.rust-splash {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.rust-splash::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(192, 86, 64, 0.08) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.container {
+  max-width: 1200px; /* Wider for modern layouts */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 10rem 0; /* Massive breathing room */
+  position: relative;
+}
+
+.story-section {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.story-section.reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 900px) {
+  .story-section, .story-section.reverse {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .section {
+    padding: 5rem 0; /* Less padding on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+.footer-links-grid {
+  display: flex;
+  gap: 6rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .footer-links-grid {
+    gap: 3rem;
+  }
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
+/* Modern, minimal buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-main);
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 100px; /* Pill shape */
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--text-main);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+/* Responsive Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+  color: #000;
+}
+
+.dashboard-sidebar {
+  width: 250px;
+  background: #f8f9fa;
+  border-right: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.dashboard-sidebar-header {
+  padding: 2rem;
+}
+
+.dashboard-nav {
+  flex: 1;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.dashboard-logout {
+  padding: 2rem 1rem;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 3rem;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: row;
+  }
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.05);
+  }
+  .dashboard-sidebar.open {
+    left: 0;
+  }
+  .dashboard-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+  }
+  .dashboard-overlay.open {
+    display: block;
+  }
+  .hamburger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #000;
+  }
+  .dashboard-main {
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  /* Fix oversized elements on mobile */
+  .dashboard-main h1 {
+    font-size: 1.5rem !important;
+  }
+  .dashboard-main h2 {
+    font-size: 1.3rem !important;
+  }
+  .dashboard-main h3 {
+    font-size: 1.15rem !important;
+  }
+  .dashboard-main p {
+    font-size: 0.95rem !important;
+  }
+  
+  .dashboard-main button {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .dashboard-main input,
+  .dashboard-main select,
+  .dashboard-main textarea {
+    padding: 0.8rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+  
+  /* Target the large inline padding on cards/forms */
+  .dashboard-main > div {
+    gap: 1rem !important;
+  }
+  .dashboard-main div[style*="padding: 3rem"] {
+    padding: 1.5rem !important;
+    border-radius: 16px !important;
+  }
+  .dashboard-main div[style*="padding: 2rem"] {
+    padding: 1.2rem !important;
+  }
+  .dashboard-main div[style*="gap: 2rem"] {
+    gap: 1rem !important;
+  }
+}
+
+.hamburger-btn {
+  display: none;
+}
+
+.dashboard-overlay {
+  display: none;
+}
