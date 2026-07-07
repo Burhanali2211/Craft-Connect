@@ -31,6 +31,10 @@ export function AuthProvider({ children }) {
       const authData = await pb.collection('users').authWithPassword(email, password);
       return true;
     } catch (error) {
+      if (error.isAbort) {
+        // Ignore auto-cancelled requests (PocketBase JS SDK behavior)
+        return false;
+      }
       console.error('Login error', error);
       throw new Error(error.message || 'Login failed');
     }
