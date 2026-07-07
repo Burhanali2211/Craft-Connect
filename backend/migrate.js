@@ -55,6 +55,13 @@ async function run() {
         });
         console.log('Orders collection created.');
     }
+    await pb.collections.update('orders', {
+        listRule: "",
+        viewRule: "",
+        createRule: "",
+        updateRule: ""
+    });
+    console.log('Orders API rules updated.');
 
     // 4. Create OrderItems Collection
     const orders = await pb.collections.getOne('orders');
@@ -74,6 +81,13 @@ async function run() {
         });
         console.log('OrderItems collection created.');
     }
+    await pb.collections.update('orderItems', {
+        listRule: "",
+        viewRule: "",
+        createRule: "",
+        updateRule: ""
+    });
+    console.log('OrderItems API rules updated.');
 
     // 5. SEED DATA
     console.log('Seeding data...');
